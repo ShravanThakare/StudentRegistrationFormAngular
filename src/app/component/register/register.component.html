@@ -1,0 +1,89 @@
+<form [formGroup]="formvalidservice.userForms" (ngSubmit)="submitdata()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="container-class">
+        <mat-form-field appearance="outline">
+          <mat-label>UserName</mat-label>
+          <input
+            formControlName="userName" [(ngModel)]="userRegistrationModel.userName" 
+            matInput
+            placeholder="UserName"
+            required
+          />
+          <mat-error
+            *ngIf="formvalidservice.userForms.controls['userName'].errors?.['required']"
+            >this field is required</mat-error
+          >
+          <mat-error
+            *ngIf="formvalidservice.userForms.controls['userName'].errors?.['minlength']"
+            >Min 5 characters required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Father Name</mat-label>
+          <input
+            formControlName="fatherName" [(ngModel)]="userRegistrationModel.fatherName" 
+            matInput
+            placeholder="Father Name"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Mother Name</mat-label>
+          <input
+            formControlName="motherName" [(ngModel)]="userRegistrationModel.motherName" 
+            matInput
+            placeholder="Mother Name"
+            required
+          />
+        </mat-form-field>
+        <div class="example-button-row" style="text-align: right">
+          <button mat-raised-button type="reset" color="warn">Clear All</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="container-class">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="passWord" [(ngModel)]="userRegistrationModel.passWord" 
+            matInput
+            placeholder="Password"
+            required
+          />
+          <mat-error
+            *ngIf="formvalidservice.userForms.controls['passWord'].errors?.['required']"
+            >this field is required</mat-error
+          >
+          <mat-error
+            *ngIf="formvalidservice.userForms.controls['passWord'].errors?.['minlength']"
+            >Min 5 characters required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>PinCode</mat-label>
+          <input
+            formControlName="pinCode" [(ngModel)]="userRegistrationModel.pinCode" 
+            matInput
+            placeholder="PinCode"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input
+            formControlName="Address" [(ngModel)]="userRegistrationModel.address" 
+            matInput
+            placeholder="Address"
+            required
+          />
+        </mat-form-field>
+        <div class="example-button-row" style="text-align: left">
+          <button  mat-raised-button type="submit" color="primary" [disabled]="formvalidservice.userForms.invalid">Register</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
